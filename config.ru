@@ -11,4 +11,5 @@ use Rack::MethodOverride
 
 
 run ApplicationController
+use PicturesController
 use UsersController
