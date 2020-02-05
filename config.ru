@@ -9,7 +9,7 @@ use Rack::MethodOverride
 
 # here is where I will mount other controllers with `use`
 
-
-run ApplicationController
 use PicturesController
 use UsersController
+run ApplicationController
+
