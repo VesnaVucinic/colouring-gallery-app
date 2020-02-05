@@ -1,0 +1,11 @@
+vesna = User.create(name: "Vesna", email: "vesna.vucinic68@gmail.com", password: "vesnica")
+gudrun = User.create(name: "Gudrun", email: "gudrun.wild@gmail.com", password: "gudruncic")
+Picture.create(title: "Sleepy Foxy Lady", image_url: "https://milliemarotta.co.uk/colouring-galleries/vesna-vucinic-3/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
+Picture.create(title: "My Beautiful Bird", image_url: "https://milliemarotta.co.uk/colouring-galleries/vesna-vucinic-2/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
+Picture.create(title: "Rainbow Bird", image_url: "https://milliemarotta.co.uk/colouring-galleries/vesna-vucinic/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
+Picture.create(title: "Butterflies", image_url: "https://milliemarotta.co.uk/colouring-galleries/vesna-vucinic-8/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
+Picture.create(title: "Rabbit", image_url: "https://milliemarotta.co.uk/colouring-galleries/gudrun-wild-34/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell, Polichromos Künstlerfrbstifte, Copic Multiliner", user_id: gudrun.id)
+Picture.create(title: "Very Handsome Rooster", image_url: "https://milliemarotta.co.uk/colouring-galleries/vesna-vucinic-7/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
+Picture.create(title: "Pink Sky", image_url: "https://milliemarotta.co.uk/colouring-galleries/vesna-vucinic-7/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles and pastels", user_id: vesna.id)
+Picture.create(title: "Owl", image_url: "https://milliemarotta.co.uk/colouring-galleries/gudrun-wild-33/?pageIndex=1", description: "Colouring book: Annimal Kingdom by Millie Marotta. Material used: Faber Castell, Polichromos Künstlerfrbstifte, Copic Multiliner", user_id: gudrun.id)
+
