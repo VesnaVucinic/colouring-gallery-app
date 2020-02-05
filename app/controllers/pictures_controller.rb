@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
 
   # GET: /pictures
   get "/pictures" do
+    @pictures = Picture.all
     erb :"/pictures/index.html"
   end
 
