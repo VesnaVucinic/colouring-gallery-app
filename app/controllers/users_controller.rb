@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "users/#{@user.id}"
     else
-      redirect "users/login"
+      redirect "/login"
     end
   end
 
