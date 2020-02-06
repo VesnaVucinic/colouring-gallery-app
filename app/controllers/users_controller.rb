@@ -2,7 +2,7 @@ class UsersController < ApplicationController
  
   # route to render the login page (form)
   get "/login" do
-    erb :"users/login"
+    erb :"login"
   end
  
   # route to receive the login form
@@ -16,9 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
-
-   
+  # get sign up route that renders signup form
+  get "/signup" do
+    #render my sign form
+    erb :"signup"
   end
+   
+  
 
 
 
