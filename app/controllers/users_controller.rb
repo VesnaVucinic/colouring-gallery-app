@@ -1,10 +1,28 @@
 class UsersController < ApplicationController
  
-  # render login form
+  # route to render the login page (form)
   get "/login" do
     erb :"users/login"
   end
  
+  # route to receive the login form
+  post "/login" do
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "users/#{@user.id}"
+    else
+      redirect "users/login"
+    end
+  end
+
+
+   
+  end
+
+
+
+
   # GET: /users
   get "/users" do
     erb :"/users/index.html"
