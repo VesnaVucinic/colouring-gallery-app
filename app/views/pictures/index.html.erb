@@ -1,11 +1,8 @@
-<h1>All Pictures</h1>
+<h1>Colouring Gallery</h1><br>
 <% @pictures.each do |picture| %>
-  <h4><a href="/picture/<%= picture.id %>"><%= picture.title %></a></h4>
-  <img src="<%= picture.image_url %>" alt="<%= picture.title %>" height="200" width="200">
-  <p>Created At: <%= picture.created_at %></p>
-  <h5>By <%= picture.user.name %></h5>
-  <p><%= picture.description %></p>
-  
-  
+  <h4><a href="/picture/<%= picture.id %>"><%= picture.title %></a></h4><h5>By <%= picture.user.name %></h5>
+  <img src="<%= picture.image_url %>" alt="<%= picture.title %>" height="200" width="auto">
+   <!--<p>Created At: <%= picture.created_at %></p>
+   <p><%= picture.description %></p>-->
   <br><br>
 <% end %>
