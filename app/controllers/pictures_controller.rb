@@ -32,6 +32,8 @@ class PicturesController < ApplicationController
 
   # GET: /pictures/5/edit
   get "/pictures/:id/edit" do
+    @picture = Picture.find(params[:id])
+
     erb :"/pictures/edit.html"
   end
 
