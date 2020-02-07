@@ -13,7 +13,15 @@ class PicturesController < ApplicationController
 
   # POST: /pictures
   post "/pictures" do
-    redirect "/pictures"
+    if !logged_in?
+      redirect "/"
+    end
+    if params[:title] != "" && params[:description] != "" && params[:image_url]
+      @picture = Picture.create(title: params[:title], description: params[:description], image_url: params[:image_url], user_id: current_user.id)
+      redirect "/pictures/#{@picture.id}"
+    else
+      redirect "/pictures/new"
+    end
   end
 
   # GET: /pictures/5
