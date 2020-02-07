@@ -24,8 +24,9 @@ class PicturesController < ApplicationController
     end
   end
 
-  # GET: /pictures/5
+  # GET: /pictures/5,show rout will show what already exist
   get "/pictures/:id" do
+    @picture = Picture.find(params[:id])
     erb :"/pictures/show.html"
   end
 
