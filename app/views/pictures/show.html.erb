@@ -5,5 +5,12 @@
 <p><%= @picture.description %></p>
 <p>created on <%= @picture.created_at %></p>
 
+<% if authorized_to_edit?(@picture) %>
 <a href="/pictures/<%= @picture.id %>/edit">Edit Picture</a>
-
+ <br><br>
+<form class="" action="/pictures/<%= @picture.id %>/delete" method="post">
+    <!-- To turn this form submission into a DELETE request -->
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete Picture">
+  </form>
+<% end %>
