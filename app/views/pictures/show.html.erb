@@ -1,8 +1,9 @@
 
 <h3><%= @picture.title %></h3>
-<p><%= @picture.description %></p>
 <img src="<%= @picture.image_url %>" alt="<%= @picture.title %>" height="auto" width="auto">
-
 <p>Created by: <%= @picture.user.name %></p>
-
+<p><%= @picture.description %></p>
 <p>created on <%= @picture.created_at %></p>
+
+<a href="/pictures/<%= @picture.id %>/edit">Edit Picture</a>
+
