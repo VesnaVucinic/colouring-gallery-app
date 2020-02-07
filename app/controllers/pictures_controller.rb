@@ -61,7 +61,13 @@ class PicturesController < ApplicationController
 
   # DELETE: /pictures/5/delete
   delete "/pictures/:id/delete" do
-    redirect "/pictures"
+    set_picture
+    if authorized_to_edit?(@picture)
+      @picture.destroy
+      redirect "users/#{current_user.id}"
+    else
+      redirect "/pictures"
+    end
   end
 
   private #helper method, call private becouse no use outside this class
