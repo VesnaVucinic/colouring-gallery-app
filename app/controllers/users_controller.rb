@@ -22,6 +22,14 @@ class UsersController < ApplicationController
     erb :"signup"
   end
    
+  post "/users" do
+   if params[:name] != "" && params[:email] != "" && params[:password] != ""
+    @user = User.create(params)
+    redirect "/users/#{@user.id}"
+   else
+    redirect '/signup'
+   end
+  end
   
 
 
@@ -44,11 +52,13 @@ class UsersController < ApplicationController
 
   # GET: /users/5
   get "/users/:id" do
+    @user = User.find_by(id: params[:id])
     erb :"/users/show.html"
   end
 
   # GET: /users/5/edit
   get "/users/:id/edit" do
+    
     erb :"/users/edit.html"
   end
 
