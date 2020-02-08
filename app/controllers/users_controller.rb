@@ -24,9 +24,10 @@ class UsersController < ApplicationController
     erb :"signup"
   end
    
-  post "/users" do
-   if params[:name] != "" && params[:email] != "" && params[:password] != ""
-    @user = User.create(params)
+  post "/users" do #with create if I create new user inside if block @user.error will give @user nill)
+    @user = User.new(params)# I moved User.create abov if block and put User.new
+    #if params[:name] != "" && params[:email] != "" && params[:password] != "" #when I put new and validation in model I dont need this
+    if @user.save
     session[:user_id] = @user.id
     flash[:message] = "You have successfully created an account, #{@user.name}! Welcome!"
     redirect "/users/#{@user.id}"
