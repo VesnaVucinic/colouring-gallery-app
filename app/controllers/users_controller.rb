@@ -31,11 +31,12 @@ class UsersController < ApplicationController
     flash[:message] = "You have successfully created an account, #{@user.name}! Welcome!"
     redirect "/users/#{@user.id}"
    else
-    flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}"
+    flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}" #will puts in string format rather then array format 
+    #flash is part of active record and is used to communicate with user, errors get populated after certain method invocation
     redirect '/signup'
    end
   end
-  
+  #create save and update will trigger the validation
 
 
 
@@ -58,7 +59,7 @@ class UsersController < ApplicationController
   # GET: /users/5
   get "/users/:id" do
     @user = User.find_by(id: params[:id])
-    erb :"/users/my_pictures.html"
+    erb :"/users/show.html"
   end
 
   # GET: /users/5/edit
