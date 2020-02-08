@@ -10,8 +10,10 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect "users/#{@user.id}"
+      flash[:message] = "Welcome, #{@user.name}!"
+      redirect "users/#{@user.id}" 
     else
+      flash[:errors] = "Your credentials were invalid.  Please sign up or try again."
       redirect "/login"
     end
   end
@@ -72,7 +74,7 @@ class UsersController < ApplicationController
   delete "/users/:id/delete" do
     redirect "/users"
   end
-
+  
   get '/logout' do
     session.clear
     redirect '/'
