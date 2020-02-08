@@ -24,9 +24,15 @@
     </div>
   
     <div class="wrapper">
-      <div class="col">
+      <% if flash[:message] %>
+        <h3><%= flash[:message] %></h3>
+      <% end %>
+      <% if flash[:errors] %>
+        <h3 style="color: red;"><%= flash[:errors] %></h3>
+      <% end %>
+
         <%= yield %>
-      </div>
+
       <footer class="branding">
         <small>&copy; 2020 <strong>SinatraColouringGalleryApp</strong></small>
       </footer>
