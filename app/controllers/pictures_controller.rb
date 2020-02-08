@@ -34,7 +34,7 @@ class PicturesController < ApplicationController
   get "/pictures/:id/edit" do
     set_picture
     if logged_in?
-      if @picture.user == current_user
+      if @picture.user == current_user && params[:title] != "" && params[:description] != "" && params[:image_url] = ""
         erb :"/pictures/edit.html"
       else
         redirect "users/#{current_user.id}"
@@ -48,7 +48,7 @@ class PicturesController < ApplicationController
   patch "/pictures/:id" do
     set_picture
     if logged_in?
-      if @picture.user == current_user && params[:title] != "" && params[:description] != "" && params[:image_url]
+      if @picture.user == current_user && params[:title] != "" && params[:description] != "" && params[:image_url] != ""
         @picture.update(title: params[:title], description: params[:description], image_url: params[:image_url])#this is one big hash , I ommited{}, and it still one argument
       redirect "/pictures/#{@picture.id}"
       else
@@ -60,11 +60,12 @@ class PicturesController < ApplicationController
   end
 
   # DELETE: /pictures/5/delete
+  #diff between delete and destroy:destroy runs any callbacks on the model delete doesn't and destroy remove associate children. Callbecks are methods that ask to do something befor action 
   delete "/pictures/:id/delete" do
     set_picture
     if authorized_to_edit?(@picture)
       @picture.destroy
-      redirect "users/#{current_user.id}"
+      redirect "users/#{current_user.id}"#not to render becouse of separation of concerns, delete action is to simply delete and when is that done redirect somewhere, not job to show us something. Delete, pach and post request actions end in rederct not job to show that do get.
     else
       redirect "/pictures"
     end

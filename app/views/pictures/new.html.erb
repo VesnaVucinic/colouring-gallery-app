@@ -3,10 +3,11 @@
 <form class="" action="/pictures" method="post">
   <label for="title">Title:</label>
   <input type="text" name="title">
-  <label for="description">Description:</label>
-  <textarea name="description" style="width:auto; height:auto;"><%= @picture.description %></textarea>
   <label for="name">URL:</label>
-  <input type="url" name="image_url">
+  <input type="url" name="image_url"><br><br>
+  <label for="description">Description:</label>
+  <textarea name="description" style="width:auto; height:auto;"></textarea><br><br>
+  <br><br>
 
   <input type="submit" name="" value="Upload Picture">
 </form>

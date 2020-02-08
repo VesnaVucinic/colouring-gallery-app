@@ -31,7 +31,7 @@ user has full CRUD on pictures
 
 - [x] Ensure that users can't modify content created by other users
 
-don't show edit or delete links, also use helper method in controller to ensure edit and delete actions can only happen if current user owns the entry
+don't show edit or delete links, also use helper method in controller to ensure edit and delete actions can only happen if current user owns the picture
 
 - [x] Include user input validations
 

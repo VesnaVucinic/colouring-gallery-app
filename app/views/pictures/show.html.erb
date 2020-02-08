@@ -1,12 +1,13 @@
 
 <h3><%= @picture.title %></h3>
+<br><br>
 <img src="<%= @picture.image_url %>" alt="<%= @picture.title %>" height="auto" width="auto">
-<p>Created by: <%= @picture.user.name %></p>
-<p><%= @picture.description %></p>
+<strong> by <%= @picture.user.name %></strong>
+<p><span style="max-width:200px; word-wrap:break-word;"><%= @picture.description %></span></p>
 <p>created on <%= @picture.created_at %></p>
 
 <% if authorized_to_edit?(@picture) %>
-<a href="/pictures/<%= @picture.id %>/edit">Edit Picture</a>
+<a href="/pictures/<%= @picture.id %>/edit"><input type="submit" name="" value="Edit Picture"></a>
  <br><br>
 <form class="" action="/pictures/<%= @picture.id %>/delete" method="post">
     <!-- To turn this form submission into a DELETE request -->
@@ -14,3 +15,5 @@
     <input type="submit" name="" value="Delete Picture">
   </form>
 <% end %>
+
+

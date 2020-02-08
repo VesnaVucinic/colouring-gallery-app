@@ -16,15 +16,17 @@
   <body>
     <div class="nav">
       <% if logged_in? %>
-        <a href="/logout">Logout</a>
-        <a href="/pictures">Colouring gallery</a>
-        <a href="/pictures/new">New Picture</a>
+      <br>
+        <h4><span style="margin: 0 10px"><a href="/logout">Log Out</a></span>
+        <span style="margin: 0 10px"><a href="/pictures">Colouring Gallery</a></span>
+        <span style="margin: 0 10px"><a href="/pictures/new">New Picture</a></span></h4>
       <% end %>
     </div>
+  
     <div class="wrapper">
-
+      <div class="col">
         <%= yield %>
-
+      </div>
       <footer class="branding">
         <small>&copy; 2020 <strong>SinatraColouringGalleryApp</strong></small>
       </footer>
