@@ -7,7 +7,7 @@ class PicturesController < ApplicationController
   end
 
   # GET: /pictures/new
-  get "/pictures/new" do
+  get "/pictures/new" do# inside erb route flash messiges don't work, work only inside new HTTP request - redirect, erb are not new request, create, update and delete ends in rederect. In erb I don't need flash messiges, in erb I can create instance variable that will survive on to the view
     erb :"/pictures/new.html"
   end
 
@@ -18,8 +18,11 @@ class PicturesController < ApplicationController
     end
     if params[:title] != "" && params[:description] != "" && params[:image_url]
       @picture = Picture.create(title: params[:title], description: params[:description], image_url: params[:image_url], user_id: current_user.id)
+      flash[:message] = "Picture successfully created." 
       redirect "/pictures/#{@picture.id}"
     else
+      #flash[:errors] = "Something went wrong - you must provide title,url and description for your new picture."
+      flash[:error] = "Picture creation failed: #{picture.errors.full_messages.to_sentence}"
       redirect "/pictures/new"
     end
   end
@@ -65,6 +68,7 @@ class PicturesController < ApplicationController
     set_picture
     if authorized_to_edit?(@picture)
       @picture.destroy
+      flash[:message] = "Picture successfully deleted."
       redirect "users/#{current_user.id}"#not to render becouse of separation of concerns, delete action is to simply delete and when is that done redirect somewhere, not job to show us something. Delete, pach and post request actions end in rederct not job to show that do get.
     else
       redirect "/pictures"

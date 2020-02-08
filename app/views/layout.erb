@@ -19,13 +19,15 @@
       <br>
         <h4><span style="margin: 0 10px"><a href="/logout">Log Out</a></span>
         <span style="margin: 0 10px"><a href="/pictures">Colouring Gallery</a></span>
-        <span style="margin: 0 10px"><a href="/pictures/new">New Picture</a></span></h4>
+        <span style="margin: 0 10px"><a href="/pictures/new">New Picture</a></span>
+        <span style="margin: 0 10px"><a href="/users/:id">My Pictures</a></span></h4>
+
       <% end %>
     </div>
   
     <div class="wrapper">
       <% if flash[:message] %>
-        <h3><%= flash[:message] %></h3>
+        <h3 style="color: green;"><%= flash[:message] %></h3>
       <% end %>
       <% if flash[:errors] %>
         <h3 style="color: red;"><%= flash[:errors] %></h3>

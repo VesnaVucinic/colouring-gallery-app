@@ -10,10 +10,10 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      flash[:message] = "Welcome, #{@user.name}!"
+      #flash[:message] = "Welcome, #{@user.name}!"
       redirect "users/#{@user.id}" 
     else
-      flash[:errors] = "Your credentials were invalid.  Please sign up or try again."
+      flash[:errors] = "Your credentials were invalid. Please sign up or try again."
       redirect "/login"
     end
   end
@@ -28,8 +28,10 @@ class UsersController < ApplicationController
    if params[:name] != "" && params[:email] != "" && params[:password] != ""
     @user = User.create(params)
     session[:user_id] = @user.id
+    flash[:message] = "You have successfully created an account, #{@user.name}! Welcome!"
     redirect "/users/#{@user.id}"
    else
+    flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}"
     redirect '/signup'
    end
   end
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
   # GET: /users/5
   get "/users/:id" do
     @user = User.find_by(id: params[:id])
-    erb :"/users/show.html"
+    erb :"/users/my_pictures.html"
   end
 
   # GET: /users/5/edit
