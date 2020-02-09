@@ -34,6 +34,7 @@ class UsersController < ApplicationController
    else
     flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}" #will puts in string format rather then array format 
     #flash is part of active record and is used to communicate with user, errors get populated after certain method invocation
+    #flash messiges only work if controller action ends with rederect becouse they sends new HTTP request wher flash messiges live and they last only one rquest, new refresh of page they are lost
     redirect '/signup'
    end
   end
