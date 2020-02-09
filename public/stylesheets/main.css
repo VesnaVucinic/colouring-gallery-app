@@ -115,7 +115,17 @@
     line-height: 24px;
   }
 
-  a {
+   a {
     text-decoration: none;
-  }
+    
+  } 
+
+  /*
+    p
+  {
+      width:200px; 
+      word-wrap:break-word;
+  }*/
+  
 }
+
