@@ -17,7 +17,7 @@ class PicturesController < ApplicationController
     redirect_if_not_logged_in
     if params[:title] != "" && params[:description] != "" && params[:image_url] != ""
       @picture = Picture.create(title: params[:title], description: params[:description], image_url: params[:image_url], user_id: current_user.id)
-      flash[:message] = "Picture successfully created." 
+      flash[:message] = "Picture successfully created." if @picture.id 
       redirect "/pictures/#{@picture.id}"
     else
       flash[:errors] = "Something went wrong - you must provide title, url and description for your new picture."
