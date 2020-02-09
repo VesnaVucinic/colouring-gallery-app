@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
 
   end
+ 
 
   get "/" do
     if logged_in?

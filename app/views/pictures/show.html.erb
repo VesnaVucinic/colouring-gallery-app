@@ -4,7 +4,7 @@
 <img src="<%= @picture.image_url %>" alt="<%= @picture.title %>" height="auto" width="auto">
 <strong> by <%= @picture.user.name %></strong>
 <p><span style="max-width:200px; word-wrap:break-word;"><%= @picture.description %></span></p>
-<p>created on <%= @picture.created_at %></p>
+<p>created on <%= @picture.formatted_created_at %></p>
 
 <% if authorized_to_edit?(@picture) %>
 <a href="/pictures/<%= @picture.id %>/edit"><input type="submit" name="" value="Edit Picture"></a>

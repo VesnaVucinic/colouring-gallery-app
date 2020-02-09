@@ -4,6 +4,6 @@
 <h4><a href="/pictures/<%= picture.id %>"><%= picture.title %></a></h4>
   <img src="<%= picture.image_url %>" alt="<%= picture.title %>" height="200" width="auto">
    <p><%= picture.description %></p>
-   <p>created on <%= picture.created_at %></p>
+   <p>created on <%= picture.formatted_created_at %></p>
   <br><br>
 <% end %>
