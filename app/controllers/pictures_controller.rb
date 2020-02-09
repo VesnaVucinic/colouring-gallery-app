@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-
+#was nit DRY - don't repit yourself, that is why we added new helper methods
   # GET: /pictures
   get "/pictures" do
     @pictures = Picture.all
@@ -8,21 +8,20 @@ class PicturesController < ApplicationController
 
   # GET: /pictures/new
   get "/pictures/new" do# inside erb route flash messiges don't work, work only inside new HTTP request - redirect, erb are not new request, create, update and delete ends in rederect. In erb I don't need flash messiges, in erb I can create instance variable that will survive on to the view
+    redirect_if_not_logged_in #protect this rout
     erb :"/pictures/new.html"
   end
 
   # POST: /pictures
   post "/pictures" do
-    if !logged_in?
-      redirect "/"
-    end
-    if params[:title] != "" && params[:description] != "" && params[:image_url]
+    redirect_if_not_logged_in
+    if params[:title] != "" && params[:description] != "" && params[:image_url] != ""
       @picture = Picture.create(title: params[:title], description: params[:description], image_url: params[:image_url], user_id: current_user.id)
       flash[:message] = "Picture successfully created." 
       redirect "/pictures/#{@picture.id}"
     else
-      #flash[:errors] = "Something went wrong - you must provide title,url and description for your new picture."
-      flash[:error] = "Picture creation failed: #{picture.errors.full_messages.to_sentence}"
+      flash[:errors] = "Something went wrong - you must provide title, url and description for your new picture."
+      #flash[:error] = "Picture creation failed: #{picture.errors.full_messages.to_sentence}"
       redirect "/pictures/new"
     end
   end
@@ -35,31 +34,25 @@ class PicturesController < ApplicationController
 
   # GET: /pictures/5/edit, render form edit
   get "/pictures/:id/edit" do
+    redirect_if_not_logged_in
     set_picture
-    if logged_in?
       if @picture.user == current_user && params[:title] != "" && params[:description] != "" && params[:image_url] = ""
         erb :"/pictures/edit.html"
       else
         redirect "users/#{current_user.id}"
       end
-    else
-      redirect "/"
-    end
   end
 
   # PATCH: /pictures/5/modifie-update what is edited 
   patch "/pictures/:id" do
+    redirect_if_not_logged_in
     set_picture
-    if logged_in?
       if @picture.user == current_user && params[:title] != "" && params[:description] != "" && params[:image_url] != ""
         @picture.update(title: params[:title], description: params[:description], image_url: params[:image_url])#this is one big hash , I ommited{}, and it still one argument
       redirect "/pictures/#{@picture.id}"
       else
         redirect "users/#{current_user.id}"
       end
-    else
-      redirect "/"
-    end
   end
 
   # DELETE: /pictures/5/delete
