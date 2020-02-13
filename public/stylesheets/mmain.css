@@ -1,0 +1,91 @@
+@media screen {
+    /* --- Reset Styles --- */
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        color: #0c2ef1;
+    }
+  
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+  
+    /* --- Welcome Page Styles --- */
+    body {
+      
+      /*background-image: linear-gradient(to left, rgb(240, 181, 181), rgb(241, 218, 175), rgb(250, 250, 192), rgb(252, 252, 208), rgb(252, 252, 219), rgb(248, 226, 186), rgb(248, 166, 166));
+      /*background-color: rgb(56, 200, 248);*/
+      color: #333;
+      font-family: Sans-Serif;
+      line-height: 18px;
+    }
+  
+  
+      
+  
+      
+    .container {
+        display: inline-block;
+        width: 960px;
+        margin: 0 auto;
+    }
+
+    nav {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        padding: 20px 30px;
+        border-right: 1px solid #657b83;
+    }
+    
+    nav ul li:last-child {
+        border-right: none;
+    }
+    
+    nav ul li a {
+        font-size: 1.3em;
+    }
+
+    a {
+        text-decoration: none;
+    } 
+    
+    .main {
+        overflow: hidden;
+    }
+    
+    
+    .branding {
+        
+        clear: both;
+    }
+    
+    footer.branding {
+        /* border-top: 2px solid #ccc; */
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+  
+    
+    @media screen and (max-width: 600px) {
+      .wrapper {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        width: auto;
+        }
+    }
+    
+}

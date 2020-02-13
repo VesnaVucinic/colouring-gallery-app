@@ -1,10 +1,45 @@
-<h2><%= @user.name %>'s Gallery Page</h2>
+<style>
+div.gallery {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding: 10px;
+  grid-gap: 50px;
+  margin: 0 30px;
+}
 
-<% @user.pictures.each do |picture| %>
-<h4><a href="/pictures/<%= picture.id %>"><%= picture.title %></a></h4>
-  <img src="<%= picture.image_url %>" alt="<%= picture.title %>" height="200" width="auto">
-   <p><%= picture.description %></p>
-   <p>created on <%= picture.formatted_created_at %></p>
-  <br><br>
-<% end %>
+
+.header {
+  padding: 40px;
+  text-align: center;
+  font-size: 25px;
+}
+
+
+
+
+.rainbow {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+
+</style>
+
+
+<div class="header">
+    <h1><span class="rainbow"><%= @user.name %>'s Gallery</span></h1>
+</div>
+<div class="gallery">
+
+    <% @pictures.each do |picture| %>
+      
+      <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_url %>" alt="<%= picture.title %>" height="250" width="250"></a>
+      
+      <br><br>
+    <% end %>
+
+</div>
 

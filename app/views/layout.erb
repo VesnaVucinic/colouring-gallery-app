@@ -14,16 +14,21 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="nav">
-      <% if logged_in? %>
-      <br>
-        <h4><span style="margin: 0 20px; text-decoration: none"><a href="/logout">Log Out</a></span>
-        <span style="margin: 0 20px"><a href="/pictures">Colouring Gallery</a></span>
-        <span style="margin: 0 20px"><a href="/pictures/new">New Picture</a></span>
-        <span style="margin: 0 20px"><a href="/my_pictures">My Pictures</a></span></h4>
 
-      <% end %>
-    </div>
+  <div class="container">
+  
+   <header>
+            <nav>
+                <% if logged_in? %>
+                <ul>
+                    <li><a href="/logout">Log Out</a></li>
+                    <li><a href="/pictures">Colouring Gallery</a></li>
+                    <li><a href="/pictures/new">New Picture</a></li>
+                    <li><a href="/my_pictures">My Pictures</a></li>
+                </ul>
+                <% end %>
+            </nav>
+   </header>
   
     <div class="wrapper">
       <% if flash[:message] %>
@@ -35,7 +40,7 @@
 
         <%= yield %>
 
-      <footer class="branding">
+      <footer class="branding" style="text-align: center">
         <small>&copy; 2020 <strong>SinatraColouringGalleryApp</strong></small>
       </footer>
     </div>
@@ -45,5 +50,6 @@
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
+  </div>
   </body>
 </html>
