@@ -84,10 +84,11 @@ class UsersController < ApplicationController
   # end
   
   get '/my_pictures' do
+   
     if logged_in?
       redirect "/users/#{current_user.id}"
     else
-      erb :welcome
+      redirect_if_not_logged_in
     end
   end 
 
