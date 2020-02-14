@@ -36,7 +36,7 @@ div.gallery {
 
     <% @pictures.each do |picture| %>
       
-      <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_url %>" alt="<%= picture.title %>" height="250" width="250"></a>
+      <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_url %>" alt="<%= picture.title %>" title="<%= picture.title %>" height="250" width="250"></a>
       
       <br><br>
     <% end %>
