@@ -3,12 +3,18 @@ img {
   float: left;
   padding: 18px
 }
+
+.page button:hover {
+      background-color: #169ef8;
+     
+      cursor: pointer;
+      color: white;
+}
 </style>
 
 <section id="show" class="page">
 <br><br>
 <p><img src="<%= @picture.image_url %>" alt="<%= @picture.title %>" height="auto" width="auto"><br>
-<!--<strong> by <%= @picture.user.name %></strong>-->
 <strong>"<%= @picture.title %>"
 by <%= @picture.user.name %></strong><br><br>
 <%= @picture.description %></p>
@@ -26,6 +32,5 @@ by <%= @picture.user.name %></strong><br><br>
 <% end %>
 </section>
 
-<!--<input type="submit" name="" value="Delete Picture">-->
 
 

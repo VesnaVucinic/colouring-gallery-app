@@ -156,6 +156,13 @@
       background-color: white;
       color: black;
     } 
+    .page button:hover {
+      background-color: #169ef8;  
+     
+      cursor: pointer;
+      color: white;
+}
+    
   
     .upload input  {
       display: inline-block;
