@@ -3,10 +3,10 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
 #configure block tells the controller where to look to find the views (your pages with HTML to display text in the browser) and the public directory.
   configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-    enable :sessions
-    set :session_secret, "secert_for_development"
+    set :public_folder, 'public'#tell sinatra here are my public file sa images, styleshits
+    set :views, 'app/views'#tell sinatra to look in app for views file
+    enable :sessions #now we have access to hush called sessions that will log in and out user
+    set :session_secret, "secert_for_development" #layer of security session ID will be created for paticular session, if someone doesn't have correct session secret won't be able to imitate user
     register Sinatra::Flash
 
   end
