@@ -156,12 +156,7 @@
       background-color: white;
       color: black;
     } 
-    .page button:hover {
-      background-color: #169ef8;  
-     
-      cursor: pointer;
-      color: white;
-}
+    
     
   
     .upload input  {
@@ -259,7 +254,7 @@
       margin-top: 20px;
       padding-top: 20px;
     }
-  }
+}
   
   @media screen and (max-width: 600px) {
     .wrapper {
@@ -268,16 +263,13 @@
       box-shadow: none;
       width: auto;
     }
-  
-  
-  
-    /*
-      p
-    {
-        width:200px; 
-        word-wrap:break-word;
-    }*/
-    
   }
+
+  
+  
+  
+   
+    
+
   
   

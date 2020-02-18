@@ -1,11 +1,10 @@
-#here is where I will create some seed data to work with and test associations
 Picture.delete_all
 User.delete_all
-#I will create variables
+
 vesna = User.create(name: "Vesna", email: "vesna.vucinic68@gmail.com", password: "vesnica")
 gudrun = User.create(name: "Gudrun", email: "gudrun.wild@gmail.com", password: "gudruncic")
 vicki = User.create(name:"Vicki", email: "vicki.parkin@gmail.com", password: "vickica")
-#I will ad foreign key as user_id
+
 Picture.create(title: "Sleepy Foxy Lady", image_url: "https://i2.wp.com/milliemarotta.co.uk/wp-content/uploads/2019/07/0_IMG_20190707_191454__01-e1562664013295.jpg?fit=640%2C640&ssl=1.jpg", description: "Colouring book: Animal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
 Picture.create(title: "My Beautiful Bird", image_url: "https://i0.wp.com/milliemarotta.co.uk/wp-content/uploads/2019/04/IMG_20190428_154722-e1556630932580.jpg?fit=640%2C646&ssl=1.jpg", description: "Colouring book: Animal Kingdom by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
 Picture.create(title: "Rainbow Bird", image_url: "https://i1.wp.com/milliemarotta.co.uk/wp-content/uploads/2019/04/IMG_20190424_084716-e1556630862218.jpg?fit=640%2C638&ssl=1.jpg", description: "Colouring book: Beautiful Birds and Treetop Treasures by Millie Marotta. Material used: Faber Castell Polichromos penciles", user_id: vesna.id)
